@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">ConversionApp</string>
+    <string name="quantity">Quantity</string>
+    <string name="source">Source Unit</string>
+    <string name="target">Target Unit</string>
+    <string name="convert">Convert</string>
+
+    <string-array name="units">
+        <item>Ångstrom</item>
+        <item>Smoot</item>
+        <item>inch</item>
+        <item>foot</item>
+        <item>yard</item>
+        <item>mile</item>
+        <item>nautical mile</item>
+        <item>mil</item>
+        <item>rod</item>
+        <item>fathom</item>
+        <item>furlong</item>
+        <item>km</item>
+        <item>m</item>
+        <item>cm</item>
+        <item>mm</item>
+        <item>μm</item>
+        <item>nm</item>
+    </string-array>
+
+</resources>
