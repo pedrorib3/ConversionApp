@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case"mm":
                 return "mm";
             case"μm":
-                return"μm";
+                return"um";
             case"nm":
                 return"nm";
         }

@@ -1,62 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:orientation="vertical">
 
+    <!-- first row -->
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:gravity="center">
 
             <TextView
                 android:id="@+id/quantity"
-                android:layout_width="33dp"
-                android:layout_height="match_parent"
-                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="@string/quantity"
-                android:textSize="25dp" />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/source"
-                android:layout_width="180dp"
-                android:layout_height="match_parent"
-                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:text="@string/source"
-                android:textSize="25dp" />
+                android:textSize="24sp" />
+
         </TableRow>
 
         <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
 
             <EditText
                 android:id="@+id/editQuant"
-                android:layout_width="202dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:autofillHints=""
                 android:ems="10"
                 android:imeOptions="actionDone"
-                android:inputType="numberDecimal"
-                android:paddingTop="25dp"
-                android:paddingEnd="150dp" />
+                android:inputType="numberDecimal" />
 
             <Spinner
                 android:id="@+id/spinUnits"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textAlignment="center" />
+
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:gravity="center">
 
             <TextView
                 android:id="@+id/target"
@@ -66,23 +67,28 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/target"
-                android:textSize="25dp" />
-        </TableRow>
+                android:textSize="24sp" />
 
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <Spinner
-                android:id="@+id/spinUnits2"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <Spinner
+                android:id="@+id/spinUnits2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="205dp"
+                android:layout_weight="1"
+                android:textAlignment="center" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
 
             <Button
                 android:id="@+id/convert"
@@ -96,17 +102,24 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:gravity="center">
 
             <TextView
                 android:id="@+id/output"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:paddingTop="20dp" />
+                android:gravity="center"
+                android:paddingTop="20dp"
+                android:textSize="25dp" />
 
         </TableRow>
 
     </TableLayout>
+
+    <!-- second row -->
+
+    <!-- third row -->
 
 </LinearLayout>
