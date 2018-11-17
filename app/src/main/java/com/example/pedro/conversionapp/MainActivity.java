@@ -1,13 +1,24 @@
 package com.example.pedro.conversionapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.SubMenu;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +29,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Array;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -47,6 +59,63 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         convert = findViewById(R.id.convert);
         convert.setOnClickListener(this);
         conversionRate = findViewById(R.id.output);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        String a[] = getResources().getStringArray(R.array.units);
+
+        // Inflate your main_menu into the menu
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        // Find the menuItem to add your SubMenu
+        MenuItem myMenuItem = menu.findItem(R.id.about);
+        SubMenu subm = myMenuItem.getSubMenu();
+
+        for (int i=0; i< a.length; i++) {
+            int id = i;
+            subm.add(0,id,0,a[i]);
+            //menu.add(0,id,0,a[i]);
+        }
+
+        // Inflating the sub_menu menu this way, will add its menu items
+        // to the empty SubMenu you created in the xml
+        getMenuInflater().inflate(R.menu.sub_menu, myMenuItem.getSubMenu());
+
+        return (super.onCreateOptionsMenu(menu));
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Log.d("App",item.getTitle().toString());
+        Integer id = item.getItemId();
+        String c_unit = item.getTitle().toString();
+
+        if (id == 2131230726)
+        {
+            return true;
+        }
+        else {
+            AboutUnits.setText(c_unit);
+            Intent i = new Intent(this, AboutUnits.class);
+            startActivity(i);
+            return true;
+        }
+    }
+
+
+
+    public void displayPopupWindow(String info) {
+        Intent i = new Intent(this, AboutUnits.class);
+        startActivity(i);
+
+        /*
+        View layout = getLayoutInflater().inflate(R.layout.popup, null);
+        popup.setContentView(layout);
+        popup.setOutsideTouchable(true);
+        popup.setFocusable(true);
+        popup.showAtLocation(layout, Gravity.CENTER, 0, 0);
+        */
     }
 
     @Override
@@ -110,7 +179,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 return"nm";
         }
         return"";
-}
+    }
 
     private String readStream(InputStream in) {
         BufferedReader reader = null;
@@ -195,7 +264,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     writeConversion(sourceQuantity,sourceUnit,destQuantity,destUnit);
                 }
                 //else
-                    //writeRate("Code: " + responseCode);
+                //writeRate("Code: " + responseCode);
             } catch (java.io.IOException e) {
                 e.printStackTrace(); }
         }
